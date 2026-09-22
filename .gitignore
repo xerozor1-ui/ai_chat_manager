@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Data files (we'll track these separately)
+data/*.csv
+data/*.json
+
+# Model files (large, generated)
+models/*.joblib
+models/*.pkl
+
+# IDE
+.vscode/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
