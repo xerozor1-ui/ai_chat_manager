@@ -1,39 +1,103 @@
 # chat_manager.py
-# This file contains the data structures for the AI Chat Manager.
+# A command-line application for managing AI chat sessions.
 
-# A list to hold all chat session dictionaries
+# Global list to hold all sessions
 sessions = []
 
-# Our first session - a dictionary with three fields
-session_1 = {
-    'session_name': 'Python Decorators Deep Dive',
-    'date': '2025-01-20',
-    'topics': ['python', 'decorators', 'functions']
-}
 
-# Add the session to our list
-sessions.append(session_1)
-print("Session added successfully!")
+def add_session():
+    """Add a new chat session."""
+    print("\n--- Add New Session ---")
 
-# Print all current chat sessions
-print("--- Current Chat Sessions ---")
-for session in sessions:
-    print(session)
-print("-----------------------------")
+    name = input("Enter session name: ")
+    if len(name) == 0:
+        print("Session name cannot be empty.")
+        return
 
-# Create a second session
-session_2 = {
-    'session_name': 'Docker Setup for Flask',
-    'date': '2025-01-21',
-    'topics': ['docker', 'flask', 'devops']
-}
+    date = input("Enter date (YYYY-MM-DD): ")
+    if len(date) == 0:
+        print("Date cannot be empty.")
+        return
 
-# Add the second session to our list
-sessions.append(session_2)
-print("\nSecond session added successfully!")
+    topics_input = input("Enter topics (comma-separated): ")
+    topics = [t.strip() for t in topics_input.split(",")]
 
-# Print all chat sessions again to show the change
-print("\n--- All Chat Sessions (Updated) ---")
-for session in sessions:
-    print(session)
-print("-----------------------------------")
+    new_session = {
+        'session_name': name,
+        'date': date,
+        'topics': topics
+    }
+
+    sessions.append(new_session)
+    print(f"\nSession '{name}' added successfully!")
+
+
+def list_sessions():
+    """Display all stored sessions."""
+    if len(sessions) == 0:
+        print("\nNo sessions found.")
+        return
+
+    print("\n--- All Sessions ---")
+    for session in sessions:
+        name = session['session_name']
+        date = session['date']
+        topics = ", ".join(session['topics'])
+        print(f"{name} ({date})")
+        print(f"   Topics: {topics}")
+    print("--------------------")
+
+
+def search_sessions():
+    """Search sessions by keyword."""
+    if len(sessions) == 0:
+        print("\nNo sessions to search.")
+        return
+
+    keyword = input("\nEnter keyword to search: ").lower()
+    results = []
+
+    for session in sessions:
+        if keyword in session['session_name'].lower():
+            results.append(session)
+        elif keyword in session['topics']:
+            results.append(session)
+
+    if len(results) == 0:
+        print(f"No sessions found with keyword '{keyword}'.")
+    else:
+        print(f"\n--- Sessions matching '{keyword}' ---")
+        for session in results:
+            print(f"- {session['session_name']} ({session['date']})")
+        print("--------------------------------------")
+
+
+def main():
+    """Run the main program loop."""
+    print("Welcome to AI Chat Manager!")
+
+    running = True
+    while running:
+        print("\n=== AI Chat Manager ===")
+        print("1. Add Session")
+        print("2. List Sessions")
+        print("3. Search Sessions")
+        print("4. Exit")
+
+        choice = input("\nChoose an option (1-4): ")
+
+        if choice == "1":
+            add_session()
+        elif choice == "2":
+            list_sessions()
+        elif choice == "3":
+            search_sessions()
+        elif choice == "4":
+            print("\nGoodbye!")
+            running = False
+        else:
+            print("\nInvalid option. Please choose 1-4.")
+
+
+if __name__ == "__main__":
+    main()
