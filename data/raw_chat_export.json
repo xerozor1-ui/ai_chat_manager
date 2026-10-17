@@ -1,0 +1,38 @@
+[
+  {
+    "session_name": "Python Decorators Deep Dive",
+    "date": "2025-01-20",
+    "topics": ["python", "decorators", "functions"],
+    "messages": [
+      {"role": "user", "content": "What are decorators?"},
+      {"role": "assistant", "content": "Decorators are functions that modify other functions."}
+    ]
+  },
+  {
+    "session_name": "Docker Setup for Flask",
+    "date": "2025-01-21",
+    "topics": ["docker", "flask", "devops"],
+    "messages": [
+      {"role": "user", "content": "How do I containerize a Flask app?"},
+      {"role": "assistant", "content": "Create a Dockerfile, install dependencies, and expose the port."}
+    ]
+  },
+  {
+    "session_name": "ML Model Training Basics",
+    "date": "2025-01-22",
+    "topics": ["ML", "training", "neural networks"],
+    "messages": [
+      {"role": "user", "content": "How do I start training a model?"},
+      {"role": "assistant", "content": "Prepare your data, split into train/test, choose a model."}
+    ]
+  },
+  {
+    "session_name": "Incomplete Session - Missing Topics",
+    "date": "2025-01-23"
+  },
+  {
+    "session_name": "Invalid Session - Topics as String",
+    "date": "2025-01-24",
+    "topics": "python, debugging"
+  }
+]

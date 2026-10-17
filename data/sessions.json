@@ -1,0 +1,37 @@
+[
+    {
+        "session_name": "Python Decorators Deep Dive",
+        "date": "2025-01-20",
+        "topics": [
+            "python",
+            "decorators",
+            "functions"
+        ]
+    },
+    {
+        "session_name": "Docker Setup for Flask",
+        "date": "2025-01-21",
+        "topics": [
+            "docker",
+            "flask",
+            "devops"
+        ]
+    },
+    {
+        "session_name": "ML Model Training Basics",
+        "date": "2025-01-22",
+        "topics": [
+            "ML",
+            "training",
+            "neural networks"
+        ]
+    },
+    {
+        "session_name": "Test Persistence",
+        "date": "2025-01-23",
+        "topics": [
+            "testing",
+            "persistence"
+        ]
+    }
+]

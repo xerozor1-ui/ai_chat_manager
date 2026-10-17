@@ -1,8 +1,23 @@
 # chat_manager.py
 # A command-line application for managing AI chat sessions.
 
+import json
+
 # Global list to hold all sessions
 sessions = []
+
+
+def load_sessions():
+    """Load sessions from the JSON file."""
+    try:
+        with open('../data/sessions.json', 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print("No saved sessions found. Starting fresh.")
+        return []
+    except json.JSONDecodeError:
+        print("Sessions file is corrupted. Starting fresh.")
+        return []
 
 
 def add_session():
@@ -72,9 +87,19 @@ def search_sessions():
         print("--------------------------------------")
 
 
+def save_sessions():
+    """Save sessions to the JSON file."""
+    with open('../data/sessions.json', 'w') as file:
+        json.dump(sessions, file, indent=4)
+    print("Sessions saved.")
+
+
 def main():
     """Run the main program loop."""
+    global sessions
+
     print("Welcome to AI Chat Manager!")
+    sessions = load_sessions()
 
     running = True
     while running:
@@ -93,6 +118,7 @@ def main():
         elif choice == "3":
             search_sessions()
         elif choice == "4":
+            save_sessions()
             print("\nGoodbye!")
             running = False
         else:
